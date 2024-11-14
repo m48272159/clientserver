@@ -1,18 +1,22 @@
 #!/usr/bin/bash
-.PHONY: all clean rebuild
+.PHONY: all docs clean rebuild
 
 SOURCES:= tcpapplication.cpp
 TARGET:= tcpapplication
+DOCSDIR:= htmldocs
 CC:= g++
 CPPFLAGS:= -std=c++11
 
 $(TARGET):$(SOURCES)
 	$(CC) $(CPPFLAGS) $< -o $@
 
-all:$(TARGET)
+all:$(TARGET) docs
+
+docs:
+	@doxygen
 
 clean:
-	@rm -f $(TARGET)
+	@rm -rf $(TARGET) $(DOCSDIR)
 
 rebuild:
 	make clean all
