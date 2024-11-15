@@ -4,7 +4,7 @@
 
 namespace opts = boost::program_options;
 
-constexpr int MIN_NONPRIVILEGED_PORT = 1024;
+constexpr unsigned short MIN_NONPRIVILEGED_PORT = 1024;
 
 namespace
 {
@@ -14,10 +14,16 @@ bool Validate(const opts::variables_map &vm)
     if ((vm.count("client") > 0) && (vm.count("server") > 0))
     {
         bValid = false;
-        std::cerr << "Please start either the server or client. " << std::endl;
+        std::cerr << "Cannot start both server and client. " << std::endl;
     }
 
-    const int port = vm["port"].as<int>();
+    if ((vm.count("client") == 0) && (vm.count("server") == 0))
+    {
+        bValid = false;
+        std::cerr << "Please start either server or client. " << std::endl;
+    }
+
+    const unsigned short port = vm["port"].as<unsigned short>();
     if (port < 1024)
     {
         bValid = false;
@@ -29,16 +35,19 @@ bool Validate(const opts::variables_map &vm)
 }
 } // namespace
 
+extern void StartServer(unsigned short port);
+extern void StartClient(unsigned short port);
+
 int main(int argc, char **argv)
 {
-    int port;
+    unsigned short port;
     opts::options_description options;
     // clang-format off
     options.add_options()
 	   ("server", "Start server")
 	   ("client", "Start client")
 	   ("help", "usage")
-	   ("port", opts::value<int>(&port)->default_value(MIN_NONPRIVILEGED_PORT + 1), "Server port")
+	   ("port", opts::value<unsigned short>(&port)->default_value(MIN_NONPRIVILEGED_PORT + 1), "Server port")
 	   ;
     // clang-format on
 
@@ -51,7 +60,14 @@ int main(int argc, char **argv)
         return -1;
     }
 
-    // Create server or client as needed
+	if (vm.count("server"))
+	{
+		StartServer(port);
+	}
+	else
+	{
+		StartClient(port);
+	}
 
     return 0;
 }
