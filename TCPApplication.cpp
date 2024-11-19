@@ -60,14 +60,14 @@ int main(int argc, char **argv)
         return -1;
     }
 
-	if (vm.count("server"))
-	{
-		StartServer(port);
-	}
-	else
-	{
-		StartClient(port);
-	}
+    if (vm.count("server"))
+    {
+        StartServer(port);
+    }
+    else
+    {
+        StartClient(port);
+    }
 
     return 0;
 }

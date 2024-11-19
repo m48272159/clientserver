@@ -39,8 +39,8 @@ void StartServer(unsigned short port)
     // Create a TCP acceptor
     boost::asio::ip::tcp::acceptor acceptor(ioService, endpoint);
 
-    std::cout << "### Started server at " << "IP: " << endpoint.address() << "\t" << "Port: " << endpoint.port()
-              << std::endl;
+    std::cout << "### Started server at " << "IP: " << endpoint.address()
+              << "\t" << "Port: " << endpoint.port() << std::endl;
 
     // Start accepting clients
     while (true)
