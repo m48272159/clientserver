@@ -13,7 +13,7 @@ CPPFLAGS:= -std=c++11
 $(TARGET):$(SOURCES)
 	$(CC) $(CPPFLAGS) -I$(BOOST_ROOT)/include -L$(BOOST_ROOT)/lib $(SOURCES) -lboost_system -lboost_program_options -o $@
 
-all:$(TARGET) docs
+all:$(TARGET)
 
 docs:
 	@doxygen
