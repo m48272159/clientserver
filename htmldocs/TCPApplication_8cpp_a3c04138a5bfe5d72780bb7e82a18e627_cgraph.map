@@ -1,11 +1,13 @@
 <map id="main" name="main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,60,56"/>
-<area shape="rect" id="Node000002" href="$ClientServer_8cpp.html#a63871dd0b590d763abc35201a29861d3" title="Function to start the client." alt="" coords="110,5,201,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,35,96,28,97,33,61,40"/>
-<area shape="rect" id="Node000004" href="$ClientServer_8cpp.html#a6feb371f3396f0eb5a9ab77a3f271ed4" title="Function to start the server." alt="" coords="108,55,203,80"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="61,46,95,53,94,58,60,51"/>
-<area shape="rect" id="Node000003" href="$ClientServer_8cpp.html#a2e148ec3cbfc3e75c512fc30a239d7b2" title="Function to handle user input." alt="" coords="251,5,381,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,15,237,15,237,21,201,21"/>
-<area shape="rect" id="Node000005" href="$ClientServer_8cpp.html#ab853e1f1d0eb0b7d657389a0f6377e96" title="Function to handle client connections Error handling is done using exceptions." alt="" coords="263,55,369,80"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="203,65,249,65,249,70,203,70"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,60,80"/>
+<area shape="rect" id="Node000002" href="$ClientServer_8cpp.html#a63871dd0b590d763abc35201a29861d3" title="Function to start the client." alt="" coords="153,5,243,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,55,107,39,139,30,140,35,109,45,61,60"/>
+<area shape="rect" id="Node000004" href="$ClientServer_8cpp.html#a6feb371f3396f0eb5a9ab77a3f271ed4" title="Function to start the server." alt="" coords="151,55,245,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="60,65,137,65,137,70,60,70"/>
+<area shape="rect" id="Node000006" href="$namespaceanonymous__namespace_02TCPApplication_8cpp_03.html#aaa169a90fab9c07ab4ffec6c5e25f198" title="Validate options chosen by the user." alt="" coords="108,104,288,159"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="61,75,115,96,113,101,59,80"/>
+<area shape="rect" id="Node000003" href="$ClientServer_8cpp.html#a2e148ec3cbfc3e75c512fc30a239d7b2" title="Function to handle user input." alt="" coords="336,5,467,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="243,15,323,15,323,21,243,21"/>
+<area shape="rect" id="Node000005" href="$ClientServer_8cpp.html#ab853e1f1d0eb0b7d657389a0f6377e96" title="Function to handle client connections Error handling is done using exceptions." alt="" coords="348,55,455,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="245,65,334,65,334,70,245,70"/>
 </map>
