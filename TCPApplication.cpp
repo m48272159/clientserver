@@ -8,6 +8,7 @@ constexpr unsigned short MIN_NONPRIVILEGED_PORT = 1024;
 
 namespace
 {
+//! Validate options chosen by the user.
 bool Validate(const opts::variables_map &vm)
 {
     bool bValid = true;
@@ -55,8 +56,10 @@ int main(int argc, char **argv)
     opts::store(opts::parse_command_line(argc, argv, options), vm);
     opts::notify(vm);
 
-    if (!Validate(vm))
+    if (!Validate(vm) || vm.count("help"))
     {
+		std::cerr << "Usage:" << std::endl;
+		std::cerr << options << std::endl;
         return -1;
     }
 

@@ -7,13 +7,18 @@
 // TODO: Avoid hardcoding of server IP address
 const auto SERVERADDR{boost::asio::ip::address_v4::loopback()};
 
-// Function to handle client connections
+/**
+ * \brief Function to handle client connections
+ * Error handling is done using exceptions.
+ * \param[in] socket: TCP socket to read from.
+ */
 void HandleClient(boost::asio::ip::tcp::socket socket)
 {
     try
     {
-        // Read data from the client
+        //! Read data from the client
         boost::asio::streambuf buffer;
+		//! Note: this is a blocking call
         boost::asio::read_until(socket, buffer, '\n');
         std::string data;
         std::istream is(&buffer);
@@ -28,31 +33,35 @@ void HandleClient(boost::asio::ip::tcp::socket socket)
     }
 }
 
-// Function to start the server
+/**
+ * \brief Function to start the server
+ * \param[in] port - port on which server listens for requests.
+ */
 void StartServer(unsigned short port)
 {
-    // Create an IO service
+    //! Create an IO service
     boost::asio::io_service ioService;
-    // Create a TCP endpoint
+    //! Create a TCP endpoint
     boost::asio::ip::tcp::endpoint endpoint(SERVERADDR, port);
 
-    // Create a TCP acceptor
+    //! Create a TCP acceptor
     boost::asio::ip::tcp::acceptor acceptor(ioService, endpoint);
 
     std::cout << "### Started server at " << "IP: " << endpoint.address()
               << "\t" << "Port: " << endpoint.port() << std::endl;
 
-    // Start accepting clients
+    //! Start accepting clients
     while (true)
     {
         try
         {
-            // Create a new socket for the client
+            //! Create a new socket for the client
             boost::asio::ip::tcp::socket socket(ioService);
-            // Accept the client connection
+            //! Accept the client connection
             acceptor.accept(socket);
             std::cout << "### Client connected" << std::endl;
-            // Spawn a new thread to handle the client
+            //! Spawn a new thread to handle the client
+			//! \note the socket is a move-only object
             std::thread clientThread(HandleClient, std::move(socket));
             clientThread.detach();
         }
@@ -63,7 +72,10 @@ void StartServer(unsigned short port)
     }
 }
 
-// Function to handle user input
+/**
+  * \brief Function to handle user input
+  * \param[in] socket to which data is written by the client.
+  */
 void HandleUserInput(boost::asio::ip::tcp::socket &socket)
 {
     try
@@ -81,29 +93,33 @@ void HandleUserInput(boost::asio::ip::tcp::socket &socket)
     }
 }
 
+/**
+ * \brief Function to start the client.
+ * \param[in] port used to communicating with server.
+ */
 void StartClient(unsigned short port)
 {
     try
     {
-        // Create an IO service
+        //! Create an IO service
         boost::asio::io_service ioService;
 
-        // Create a TCP endpoint
+        //! Create a TCP endpoint
         boost::asio::ip::tcp::endpoint endpoint(SERVERADDR, port);
 
-        // Create a TCP socket
+        //! Create a TCP socket
         boost::asio::ip::tcp::socket socket(ioService);
 
-        // Connect to the server
+        //! Connect to the server
         socket.connect(endpoint);
 
-        // Start a loop to handle user input
+        //! Start a loop to handle user input
         while (true)
         {
-            // Handle user input
+            //! Handle user input
             HandleUserInput(socket);
 
-            // Check if the user wants to exit
+            //! Check if the user wants to exit
             if (std::cin.eof())
             {
                 break;
@@ -116,3 +132,4 @@ void StartClient(unsigned short port)
         exit(1);
     }
 }
+
