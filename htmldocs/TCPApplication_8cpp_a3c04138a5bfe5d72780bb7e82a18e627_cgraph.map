@@ -1,0 +1,11 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,60,56"/>
+<area shape="rect" id="Node000002" href="$ClientServer_8cpp.html#a63871dd0b590d763abc35201a29861d3" title=" " alt="" coords="110,5,201,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,35,96,28,97,33,61,40"/>
+<area shape="rect" id="Node000004" href="$ClientServer_8cpp.html#a6feb371f3396f0eb5a9ab77a3f271ed4" title=" " alt="" coords="108,55,203,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="61,46,95,53,94,58,60,51"/>
+<area shape="rect" id="Node000003" href="$ClientServer_8cpp.html#a2e148ec3cbfc3e75c512fc30a239d7b2" title=" " alt="" coords="251,5,381,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,15,237,15,237,21,201,21"/>
+<area shape="rect" id="Node000005" href="$ClientServer_8cpp.html#ab853e1f1d0eb0b7d657389a0f6377e96" title="Function to handle client connections Error handling is done using exceptions." alt="" coords="263,55,369,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="203,65,249,65,249,70,203,70"/>
+</map>
